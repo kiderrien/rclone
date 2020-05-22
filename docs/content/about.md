@@ -56,6 +56,7 @@ Rclone is a command line program to sync files and directories to and from:
 * {{< provider name="SugarSync" home="https://sugarsync.com/" config="/sugarsync/" >}}
 * {{< provider name="Wasabi" home="https://wasabi.com/" config="/s3/#wasabi" >}}
 * {{< provider name="WebDAV" home="https://en.wikipedia.org/wiki/WebDAV" config="/webdav/" >}}
+* {{< provider name="XrootD" home="https://xrootd.slac.stanford.edu/" config="/xrootd/" >}}
 * {{< provider name="Yandex Disk" home="https://disk.yandex.com/" config="/yandex/" >}}
 * {{< provider name="The local filesystem" home="/local/" config="/local/" >}}
 
