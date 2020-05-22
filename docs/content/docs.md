@@ -54,6 +54,7 @@ See the following for detailed instructions for
   * [SugarSync](/sugarsync/)
   * [Union](/union/)
   * [WebDAV](/webdav/)
+  * [XrootD](/xrootd/)
   * [Yandex Disk](/yandex/)
   * [The local filesystem](/local/)
 
