@@ -58,6 +58,7 @@ docs = [
     "sugarsync.md",
     "union.md",
     "webdav.md",
+    "xrootd.md",
     "yandex.md",
 
     "local.md",

@@ -46,6 +46,7 @@ Here is an overview of the major features of each cloud storage system.
 | SFTP                         | MD5, SHA1 ‡ | Yes     | Depends          | No              | -         |
 | SugarSync                    | -           | No      | No               | No              | -         |
 | WebDAV                       | MD5, SHA1 ††| Yes ††† | Depends          | No              | -         |
+| XrootD                       | -           | Yes     | No               | No              | R/W       |
 | Yandex Disk                  | MD5         | Yes     | No               | No              | R/W       |
 | The local filesystem         | All         | Yes     | Depends          | No              | -         |
 
@@ -345,6 +346,7 @@ operations more efficient.
 | SFTP                         | No    | No   | Yes  | Yes     | No      | No    | Yes          | No [#2178](https://github.com/rclone/rclone/issues/2178) | Yes  | Yes |
 | SugarSync                    | Yes   | Yes  | Yes  | Yes     | No      | No    | Yes          | Yes         | No  | Yes |
 | WebDAV                       | Yes   | Yes  | Yes  | Yes     | No      | No    | Yes ‡        | No [#2178](https://github.com/rclone/rclone/issues/2178) | Yes  | Yes |
+| XrootD                       | No    | Yes  | Yes  | Yes     | No      | No    | No           | No          | No  | Yes |
 | Yandex Disk                  | Yes   | Yes  | Yes  | Yes     | Yes     | No    | Yes          | Yes         | Yes | Yes |
 | The local filesystem         | Yes   | No   | Yes  | Yes     | No      | No    | Yes          | No          | Yes | Yes |
 
