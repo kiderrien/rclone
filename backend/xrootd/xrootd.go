@@ -308,12 +308,10 @@ func (f *Fs) List(ctx context.Context, dir string) (entries fs.DirEntries, err e
     fmt.Println("Using the fs list function ")
   }
 
-  //fmt.Printf("utilisation de list avec le chemin %q & url=%q \n", dir,f.url) //commentaire
   //fs.Debugf(src, "Can't move - not same remote type")
 
   xrddir := f.url+ "/"+ dir
 
-  //fmt.Println(" list: f.root= ",f.root," dir=",dir,"  xrddir",xrddir, "  f.url=",f.url)
   client,path,err :=f.xrdremote(xrddir,ctx)
   if path == "" {
 		path = "."
@@ -445,7 +443,6 @@ func (f *Fs) Purge(ctx context.Context) error {
 // Move renames a remote xrootd file object
 //
 // It returns the destination Object and a possible error
-/*
 func (f *Fs) Move(ctx context.Context, src fs.Object, remote string) (fs.Object, error) {
   if titre_fonction == true{
     fmt.Println("Using the fs Move function ")
@@ -458,71 +455,23 @@ func (f *Fs) Move(ctx context.Context, src fs.Object, remote string) (fs.Object,
 		fs.Debugf(src, "Can't move - not same remote type")
 		return nil, fs.ErrorCantMove
 	}
-  xrdsrc := f.url+ "/"+ srcObj
+
   xrddst := f.url+ "/"+ remote
 
-  fmt.Println(" Move : src.(*Object) =",srcObj," remote:",remote, "  xrddir=",xrddir)
-
-  client,pathdst,err :=f.xrdremote(xrddir,ctx)
-  if err != nil{
-    return nil, errors.Wrap(err, "Move")
-  }
-  defer client.Close()
-
-  fmt.Println(" Move : rename src.(*Object) =", srcObj.path()," pathdst:",path)
-  err = client.FS().Rename(ctx, srcObj.path(), path);
-  if err != nil {
-		return nil, errors.Wrap(err, "Move Rename failed")
-	}
-
-  dstObj, err := f.NewObject(ctx, remote)
-  if err != nil {
-		return nil, errors.Wrap(err, "Move NewObject failed")
-	}
-
-  err = client.Close();
-  if  err != nil {
-      return dstObj,err
-  }
-
-  return dstObj, nil
-}
-
-
-*/
-
-func (f *Fs) Move(ctx context.Context, src fs.Object, remote string) (fs.Object, error) {
-  if titre_fonction == true{
-    fmt.Println("Using the fs Move function ")
-  }
-
-  srcObj, ok := src.(*Object)
-
-
-  if !ok {
-		fs.Debugf(src, "Can't move - not same remote type")
-		return nil, fs.ErrorCantMove
-	}
-//  xrdsrc := f.url+ "/"+ srcObj.path()
-  xrddst := f.url+ "/"+ remote
-
-  fmt.Println(" Move : src.(*Object) =",srcObj.path()," remote:",remote, "  xrddst=",xrddst)
-
+  //Source path
   client,pathsrc,err :=f.xrdremote(srcObj.path(),ctx)
   if err != nil{
     return nil, errors.Wrap(err, "Move")
   }
   defer client.Close()
 
+  //Destination path
   client,pathdst,err :=f.xrdremote(xrddst,ctx)
   if err != nil{
     return nil, errors.Wrap(err, "Move")
   }
   defer client.Close()
 
-
-
-  fmt.Println(" Move : rename src.(*Object) =", pathsrc," pathdst:",pathdst)
   err = client.FS().Rename(ctx, pathsrc, pathdst);
   if err != nil {
 		return nil, errors.Wrap(err, "Move Rename failed")
